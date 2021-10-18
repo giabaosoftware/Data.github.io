@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/grid.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Input -->
+    <main class="main">
+        <div class="container">
+            <form action="">
+                <div class="row justify-between">
+                    <div class="col-4">
+                            <div class="form-container flex column justify-between">
+                                <div class="form-group flex column">
+                                    <label for="">Title</label>
+                                    <input type="text" name="" id="nameInput" placeholder="Enter title">
+                                    <label for="">Content</label>
+                                    <input type="text" name="" id="dataInput" placeholder="Enter content">
+                                    <button type="reset" class="btn-primary" onclick="getData()"><i class="bi bi-plus-square-fill"></i> Add</button>
+                                </div>
+                        
+                                <div class="form-group flex column">
+                                    <input type="text" id="searchInput" placeholder="Enter title">
+                                    <button type="reset" class="btn-primary" onclick="search()"><i class="bi bi-search"></i> Search</button>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="row">
+                            <table id="table">
+                                <thead id="table-head">
+                                    <tr>
+                                        <th class="table-head-1">Title</th>
+                                        <th class="table-head-2">Content</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    
+    
+    <!-- Output -->
+    
+    <script src="./js/index.js"></script>
+</body>
+</html>
