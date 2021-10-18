@@ -34,16 +34,6 @@ class Stack{
     }
 }    
 
-let stack1 = new Stack();
-stack1.push(2);
-stack1.push(3);
-stack1.push(4);
-stack1.push(5);
-
-console.log(stack1);
-stack1.remove(3);
-console.log(stack1);
-
 let elName = document.getElementById("nameInput");
 let elData = document.getElementById("dataInput");
 let elTable = document.getElementById("table-body");
