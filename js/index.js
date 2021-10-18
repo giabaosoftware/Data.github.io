@@ -61,7 +61,7 @@ function getData(){
         data.stack.forEach(data => displayData(data));
         console.log(data.stack);
     }else{
-        return false;
+        data.stack.forEach(data => displayData(data));
     }
 }
 
