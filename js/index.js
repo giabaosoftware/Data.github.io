@@ -1,6 +1,4 @@
 //jshint esversion: 6
-
-
 /*
 // let elName = document.getElementById("nameInput");
 // let elData = document.getElementById("dataInput");
@@ -67,8 +65,6 @@
 //     data.stack.forEach(data => displayData(data));
 //     console.log(data);
 // }*/
-
-
 class Array{
     constructor(){
         this.stack = [];
@@ -121,7 +117,7 @@ function displayData(array){
         let html;
         array.forEach(item => {
             let index = array.indexOf(item);
-            html += `<tr class="row-${index}">
+            html += `<tr>
                      <td class="itemId-${index}">${index}</td>
                      <td>${item.name}</td>
                      <td class="flex justify-between align-center">${item.data}<i class="bi bi-x-circle-fill" onclick="removeItem('${item.name}', '${item.data}')"></i></td>
@@ -139,7 +135,7 @@ $(document).ready(function(){
             let html = `<tr>
                     <td>${data.stack.indexOf(data.stack[id])}</td>
                     <td>${data.stack[id].name}</td>
-                    <td class="flex justify-between align-center data-item">${data.stack[id].data}<i class="bi bi-x-circle-fill"></td>
+                    <td class="flex justify-between align-center">${data.stack[id].data}<i class="bi bi-x-circle-fill" onclick="removeItem('${data.stack[id].name}', '${data.stack[id].data}')"></i></td>
                     </tr>`;
 
             $("#table-body").html(html);
