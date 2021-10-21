@@ -1,7 +1,7 @@
 //jshint esversion: 6
 
 
-
+/*
 // let elName = document.getElementById("nameInput");
 // let elData = document.getElementById("dataInput");
 // let elTable = document.getElementById("table-body");
@@ -66,7 +66,7 @@
 //     elTable.innerHTML = "";
 //     data.stack.forEach(data => displayData(data));
 //     console.log(data);
-// }
+// }*/
 
 
 class Array{
@@ -119,16 +119,15 @@ $(document).ready(function(){
 //display data
 function displayData(array){
         let html;
-        let count = 0;
         array.forEach(item => {
-            html += `<tr>
-                     <td class="itemId-${count}">${count}</td>
+            let index = array.indexOf(item);
+            html += `<tr class="row-${index}">
+                     <td class="itemId-${index}">${index}</td>
                      <td>${item.name}</td>
-                     <td class="flex justify-between align-center">${item.data}<i class="bi bi-x-circle-fill"></td>
+                     <td class="flex justify-between align-center">${item.data}<i class="bi bi-x-circle-fill" onclick="removeItem('${item.name}', '${item.data}')"></i></td>
                      </tr>`;
-            $("#table-body").html(html);
-            count++;
         });
+        $("#table-body").html(html);
 }
 
 //search data
@@ -138,9 +137,9 @@ $(document).ready(function(){
         let id = $(`.itemId-${idSearch}`).text();
         if(id){
             let html = `<tr>
-                    <td>${id}</td>
+                    <td>${data.stack.indexOf(data.stack[id])}</td>
                     <td>${data.stack[id].name}</td>
-                    <td class="flex justify-between align-center">${data.stack[id].data}<i class="bi bi-x-circle-fill"></td>
+                    <td class="flex justify-between align-center data-item">${data.stack[id].data}<i class="bi bi-x-circle-fill"></td>
                     </tr>`;
 
             $("#table-body").html(html);
@@ -150,23 +149,16 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    $(".bi-x-circle-fill").click(function(){
-        console.log()
-    });
-});
-
-// //remove data
-// function removeItem(name, content){
-//     for(let i = 0; i < data.stack.length; i++){
-//         if(data.stack[i].name === name){
-//             if(data.stack[i].data === content){
-//                 data.remove(data.stack[i]);
-//                 break;
-//             }
-//         }
-//     }
-//     elTable.innerHTML = "";
-//     data.stack.forEach(data => displayData(data));
-//     console.log(data);
-// }
+//remove data
+function removeItem(name, content){
+    for(let i = 0; i < data.stack.length; i++){
+        if(data.stack[i].name === name){
+            if(data.stack[i].data === content){
+                data.remove(data.stack[i]);
+                break;
+            }
+        }
+    }
+    $("#table-body").html("");
+    displayData(data.stack);
+}
